@@ -3,11 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
 import ImgPerfil from '../assets/images/ImgPerfil.jpg'
-import pencil from '../assets/images/pencil.svg';
-import computer from '../assets/images/computer.svg';
-import map from '../assets/images/map.svg';
+import pencil from '../assets/svg/pencil.svg';
+import computer from '../assets/svg/computer.svg';
+import map from '../assets/svg/map.svg';
 
-// Datos estructurados Schema.org para SEO
 const schemaData = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -20,7 +19,7 @@ const schemaData = {
 
 <Layout 
     title="TheVilles | Jose Andres Villegas - Programador Frontend" 
-    description="Portafolio personal de Jose Andres Villegas Colmenarez (TheVilles), estudiante de Ingeniería Informática y programador web Frontend."
+    description="Targeta personal de Jose Andres Villegas Colmenarez (TheVilles), estudiante de Ingeniería Informática y programador web Frontend."
 >
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 

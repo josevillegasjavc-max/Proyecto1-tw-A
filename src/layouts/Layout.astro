@@ -11,7 +11,7 @@ const {
 	title = "site.title",
 	description = "site.description",
 	canonicalURL = Astro.url.href,
-	ogImage = "/og-image.svg",
+	ogImage = "https://metatags.io/images/meta-tags.png",
 } = Astro.props
 
 const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
@@ -48,7 +48,6 @@ const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
 	</head>
 
 	<body class="w-full min-h-screen bg-linear-to-b from-[#202020] to-[#2c2c2c] text-indigo-100">
-		<!-- <Header/> -->
 		<main class="mx-auto max-w-7xl w-full min-h-screen flex flex-col items-center justify-center">
 			<slot />
 		</main>
