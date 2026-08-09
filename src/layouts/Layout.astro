@@ -1,20 +1,24 @@
 ---
 import '../styles/global.css';
+import img from '../assets/images/ImgPerfil.jpg';
 
 interface Props {
 	title?: string;
 	description?: string;
 	canonicalURL?: string;
-	ogImage?: string;
+	ogImage?: string | ImageMetadata;
 }
+
+
 const { 
 	title = "site.title",
 	description = "site.description",
 	canonicalURL = Astro.url.href,
-	ogImage = "https://metatags.io/images/meta-tags.png",
+	ogImage = img,
 } = Astro.props
 
-const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
+const imagePath = typeof ogImage === 'string' ? ogImage : ogImage.src;
+const socialImageURL = new URL(imagePath, Astro.site ?? Astro.url);
 ---
 
 <!doctype html>
