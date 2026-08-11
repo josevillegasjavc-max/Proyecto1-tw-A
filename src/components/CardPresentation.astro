@@ -22,14 +22,14 @@ const caracteristicas = [
     {img: map ,text: "Venezolano"}
 ]
 
-import html from "../assets/icons/lenguages/html.svg";
-import css from "../assets/icons/lenguages/css.svg";
-import js from "../assets/icons/lenguages/js.svg";
-import git from "../assets/icons/lenguages/git.svg";
-import astro from "../assets/icons/lenguages/astro.svg";
-import tw from "../assets/icons/lenguages/tw.svg";
+import html from "../assets/icons/lenguajes/html.svg";
+import css from "../assets/icons/lenguajes/css.svg";
+import js from "../assets/icons/lenguajes/js.svg";
+import git from "../assets/icons/lenguajes/git.svg";
+import astro from "../assets/icons/lenguajes/astro.svg";
+import tw from "../assets/icons/lenguajes/tw.svg";
 
-const lenguages = [
+const lenguajes = [
     {img: html, alt: "Icono de Html"},
     {img: css, alt: "Icono de Css"},
     {img: js, alt: "Icono de Javascript"},
@@ -97,7 +97,7 @@ const lenguages = [
                 <h2 class="text-3xl sm:text-2xl mb-2 mt-2 sm:mt-0 font-extrabold drop-shadow-[0px_10px_6px_#121212]">Conocimientos:</h2>
                 <ul class="flex flex-wrap gap-4 sm:gap-2">
                     {
-                        lenguages.map((item) => (
+                        lenguajes.map((item) => (
                             <li class="flex gap-2 items-center drop-shadow-[0px_10px_8px_#121212] transition duration-300 ease-in-out hover:-translate-y-1">
                                 <Image class="sm:w-10"
                                     src={item.img}
