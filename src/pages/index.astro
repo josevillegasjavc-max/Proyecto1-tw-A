@@ -1,11 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-
-import ImgPerfil from '../assets/images/ImgPerfil.jpg'
-import pencil from '../assets/svg/pencil.svg';
-import computer from '../assets/svg/computer.svg';
-import map from '../assets/svg/map.svg';
+import CardPresentation from '../components/CardPresentation.astro';
 
 const schemaData = {
     "@context": "https://schema.org",
@@ -16,44 +11,7 @@ const schemaData = {
     "nationality": "Venezuelan"
 };
 ---
-
-<Layout 
-    title="TheVilles | Jose Andres Villegas - Programador Frontend" 
-    description="Targeta personal de Jose Andres Villegas Colmenarez (TheVilles), estudiante de Ingeniería Informática y programador web Frontend."
->
+<Layout title="TheVilles | Jose Andres Villegas - Programador Frontend" +description="Targeta personal de Jose Andres Villegas Colmenarez (TheVilles), estudiante de Ingeniería Informática y programador web Frontend.">   
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
-
-    <section class="mx-auto w-9/10 max-w-160 rounded-4xl overflow-hidden shadow-[0px_0px_30px_10px_#121212]" aria-labelledby="Carta-De-Presentacion">
-        <div class="h-2/4 bg-linear-120 from-[#1552d6] via-[#0d89a8] to-[#1552d6] flex items-center justify-center rounded-b-4xl">
-            <Image 
-                class="rounded-full m-10 border-4 border-white select-none shadow-[0px_0px_40px_10px_rgba(0,0,0,0.5)] object-cover" 
-                src={ImgPerfil} 
-                alt="Fotografía de perfil de Jose Andres Villegas, conocido como TheVilles" 
-                width={200} height={200} 
-                draggable="false"
-                loading="eager" 
-            />
-        </div>
-
-        <div class="h-2/4 px-6 py-6">
-            <h1 id="Carta-De-Presentacion" class="text-5xl mb-1 font-extrabold tracking-tight">TheVilles</h1>
-            <span class="block text-[1.5rem] text-slate-400 font-medium">Jose Andres Villegas Colmenarez</span>
-
-            <h2 class="mt-4 text-2xl mb-2 font-extrabold">Sobre Mí</h2>
-            <ul class="space-y-1">
-                <li class="flex gap-1.5 items-center">
-                    <Image src={pencil} alt="" aria-hidden="true" width={24} height={24} loading="eager" draggable="false"/>
-                    <span>Estudiante de Ingeniería Informática</span>
-                </li>
-                <li class="flex gap-2 items-center">
-                    <Image src={computer} class="mb-1" alt="" aria-hidden="true" width={24} height={24} loading="eager" draggable="false"/>
-                    <span>Programador Frontend</span>
-                </li>
-                <li class="flex gap-2 items-center">
-                    <Image src={map} alt="" aria-hidden="true" width={25} height={24} loading="eager" draggable="false"/>
-                    <span>Venezolano</span>
-                </li>
-            </ul>
-        </div>
-    </section>
+    <CardPresentation/>
 </Layout>

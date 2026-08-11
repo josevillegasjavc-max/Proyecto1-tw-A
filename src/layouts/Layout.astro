@@ -9,7 +9,6 @@ interface Props {
 	ogImage?: string | ImageMetadata;
 }
 
-
 const { 
 	title = "site.title",
 	description = "site.description",
@@ -22,7 +21,7 @@ const socialImageURL = new URL(imagePath, Astro.site ?? Astro.url);
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth scrollbar-none">
 	<head>
 		<!-- Metadatos tecnicos basicos -->
 		<meta charset="utf-8" />
@@ -52,9 +51,8 @@ const socialImageURL = new URL(imagePath, Astro.site ?? Astro.url);
 	</head>
 
 	<body class="w-full min-h-screen bg-linear-to-b from-[#202020] to-[#2c2c2c] text-indigo-100">
-		<main class="mx-auto max-w-7xl w-full min-h-screen flex flex-col items-center justify-center">
+		<main class="mx-auto max-w-7xl w-full min-h-screen flex flex-col items-center sm:justify-center">
 			<slot />
 		</main>
 	</body>
-
 </html>

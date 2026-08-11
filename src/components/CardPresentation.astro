@@ -1,0 +1,116 @@
+---
+import { Image } from "astro:assets";
+import ImgPerfil from "../assets/images/ImgPerfil.jpg";
+
+import iconGithub from "../assets/icons/socials/github.svg";
+import iconMail from "../assets/icons/socials/mail.svg";
+import iconPinte from "../assets/icons/socials/pinterest.svg";
+
+const iconsSocial = [
+    {img: iconGithub ,href: "https://github.com/josevillegasjavc-max", aria: "Enlace hacia el github de Jose Villegas (Se abre en una nueva pestaña)"},
+    {img: iconMail ,href: "mailto:josevillegasjavc@gmail.com", aria: "Enlace hacia el gmail de Jose Villegas (Se abre en la app de gmail de windows)"},
+    {img: iconPinte ,href: "https://www.pinterest.com/josevillegasjavc/", aria: "Enlace hacia el pinterest de Jose Villegas (Se abre en una nueva pestaña)"}
+]
+
+import pencil from "../assets/icons/pencil.svg";
+import computer from "../assets/icons/computer.svg";
+import map from "../assets/icons/map.svg";
+
+const caracteristicas = [
+    {img: pencil ,text: "Estudiante de Ingeniería Informática"},
+    {img: computer ,text: "Programador Frontend"},
+    {img: map ,text: "Venezolano"}
+]
+
+import html from "../assets/icons/lenguages/Html.svg";
+import css from "../assets/icons/lenguages/Css.svg";
+import js from "../assets/icons/lenguages/Js.svg";
+import git from "../assets/icons/lenguages/Git.svg";
+import astro from "../assets/icons/lenguages/Astro.svg";
+import tw from "../assets/icons/lenguages/Tw.svg";
+
+const lenguages = [
+    {img: html, alt: "Icono de Html"},
+    {img: css, alt: "Icono de Css"},
+    {img: js, alt: "Icono de Javascript"},
+    {img: git, alt: "Icono de Git"},
+    {img: astro, alt: "Icono de Astro"},
+    {img: tw, alt: "Icono de Tailwind"},
+]
+---
+<section class="mx-auto w-full max-w-150 sm:rounded-4xl overflow-hidden sm:shadow-[0px_0px_30px_10px_#121212]" aria-labelledby="Carta-De-Presentacion">
+    <div class="h-2/4 m-4 bg-linear-120 from-[#1552d6] via-[#0d89a8] to-[#1552d6] flex items-center justify-center rounded-4xl overflow-hidden">
+        <Image
+            class="rounded-full m-10 sm:m-6 p-0.75 border-4 border-white select-none shadow-[0px_0px_15px_10px_rgba(0,0,0,0.5)] cursor-pointer transition duration-1200 ease-in-out hover:-translate-y-1 hover:shadow-[0px_0px_15px_10px_rgba(0,0,0,0.6)] transform-3d hover:rotate-y-180 hover:-rotate-x-10 sm:w-50"
+
+            src={ImgPerfil}
+            alt="Fotografía de perfil de Jose Andres Villegas, conocido como TheVilles"
+            width={260}
+            height={260}
+            draggable="false"
+            loading="eager"
+        />
+    </div>
+
+    <div class="h-2/4 px-8 pb-4 mt-6 sm:mt-2 space-y-2 sm:space-y-1">
+        <h1 id="Carta-De-Presentacion" class="text-5xl font-extrabold drop-shadow-[0px_10px_6px_#121212]">TheVilles</h1> 
+        <span class="block text-[1.5rem] text-slate-300 font-medium">Jose Villegas Colmenarez</span>
+        <div class="flex gap-4 mt-2 sm:mt-1">
+            {
+                iconsSocial.map((item) => (
+                    <a href={item.href} class="drop-shadow-[0px_10px_5px_#121212] transition duration-300 ease-in-out hover:-translate-y-1 " target="_blank" rel="noopener noreferrer nofollow" aria-label={item.aria}>
+                        <Image class="sm:w-9"
+                            src={item.img} 
+                            alt=""
+                            aria-hidden="true"
+                            width={50}
+                            loading="eager"
+                            draggable="false"
+                        />
+                    </a>
+                ))
+            }
+        </div>
+
+        <div class="mt-2 p-2 sm:mt- sm:p-0 sm:flex gap-8">
+            <div class="max-h-fit sm:w-3/4">
+                <h2 class="text-3xl sm:text-2xl mb-2 font-extrabold drop-shadow-[0px_10px_6px_#121212]">Sobre Mí:</h2>
+                <ul class="space-y-2 sm:space-y-2.5 sm:text-[1.2rem]">
+                    {
+                        caracteristicas.map((item) => (
+                            <li class="flex gap-2 items-center text-[1.25rem] sm:text-[1rem]">
+                                <Image class="sm:w-6"
+                                    src={item.img}
+                                    alt=""
+                                    aria-hidden="true"
+                                    width={30}
+                                    loading="eager"
+                                    draggable="false"
+                                />
+                                <span>{item.text}</span>
+                            </li>  
+                        ))
+                    }
+                </ul>
+            </div>
+
+            <div class="sm:w-2/4">
+                <h2 class="text-3xl sm:text-2xl mb-2 mt-2 sm:mt-0 font-extrabold drop-shadow-[0px_10px_6px_#121212]">Conocimientos:</h2>
+                <ul class="flex space-x-5 sm:space-x-2 space-y-3 flex-wrap">
+                    {
+                        lenguages.map((item) => (
+                            <li class="flex gap-2 items-center drop-shadow-[0px_10px_8px_#121212] transition duration-300 ease-in-out hover:-translate-y-1">
+                                <Image class="sm:w-10"
+                                    src={item.img}
+                                    alt={item.alt}
+                                    width={58}
+                                    draggable="false"
+                                />
+                            </li>  
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
