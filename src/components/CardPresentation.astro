@@ -28,6 +28,7 @@ import js from "../assets/icons/lenguajes/js.svg";
 import git from "../assets/icons/lenguajes/git.svg";
 import astro from "../assets/icons/lenguajes/astro.svg";
 import tw from "../assets/icons/lenguajes/tw.svg";
+import { undefined } from "astro:schema";
 
 const lenguajes = [
     {img: html, alt: "Icono de Html"},
@@ -39,13 +40,14 @@ const lenguajes = [
 ]
 ---
 <section class="mx-auto w-full max-w-150 sm:rounded-4xl overflow-hidden sm:shadow-[0px_0px_30px_10px_#121212]" aria-labelledby="Carta-De-Presentacion">
-    <div class="h-2/4 m-4 bg-linear-120 from-[#1552d6] via-[#0d89a8] to-[#1552d6] flex items-center justify-center rounded-4xl overflow-hidden">
+    <div class="perspective-[2000px] h-2/4 m-4 bg-linear-120 from-[#1552d6] via-[#0d89a8] to-[#1552d6] flex items-center justify-center rounded-4xl overflow-hidden">
         <Image
             class="rounded-full m-10 sm:m-6 p-0.75 border-4 border-white select-none shadow-[0px_0px_15px_10px_rgba(0,0,0,0.5)] cursor-pointer transition duration-1200 ease-in-out hover:-translate-y-1 hover:shadow-[0px_0px_15px_10px_rgba(0,0,0,0.6)] transform-3d hover:rotate-y-180 hover:-rotate-x-10 sm:w-50"
             src={ImgPerfil}
             alt="Fotografía de perfil de Jose Andres Villegas, conocido como TheVilles"
             width={260}
             height={260}
+            densities={[1, 2]}
             draggable="false"
             loading="eager"
         />
@@ -56,8 +58,10 @@ const lenguajes = [
         <span class="block text-[1.5rem] text-slate-300 font-medium">Jose Villegas Colmenarez</span>
         <div class="flex gap-4 mt-2 sm:mt-1">
             {
-                iconsSocial.map((item) => (
-                    <a href={item.href} class="drop-shadow-[0px_10px_5px_#121212] transition duration-300 ease-in-out hover:-translate-y-1 " target="_blank" rel="noopener noreferrer nofollow" aria-label={item.aria}>
+                iconsSocial.map((item) => {
+                    const isMail = item.href.startsWith("mailto:");
+                    return (
+                    <a href={item.href} class="drop-shadow-[0px_10px_5px_#121212] transition duration-300 ease-in-out hover:-translate-y-1 " target={isMail ? null : "_blank"} rel={isMail ? null : "noopener noreferrer nofollow"} aria-label={item.aria}>
                         <Image class="sm:w-9"
                             src={item.img} 
                             alt=""
@@ -67,7 +71,8 @@ const lenguajes = [
                             draggable="false"
                         />
                     </a>
-                ))
+                    );
+                })
             }
         </div>
 
